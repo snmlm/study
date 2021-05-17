@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spring-aop</module>
+        <module>mybatis</module>
     </modules>
 
     <properties>
@@ -19,13 +20,7 @@
     </properties>
 
     <dependencies>
-        <!-- spring向下兼容，直接用最新的，mvc中有大多数的依赖 -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.3.6</version>
-        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
