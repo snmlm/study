@@ -3,6 +3,26 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.snmlm.dao.UserMapper">
+
+    <!-- 二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
+    <resultMap id="BaseResultMap" type="userDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="age" property="age" jdbcType="INTEGER"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <association property="authorityDto" column="authorityId" javaType="authorityDto" select="selectAuthority"/>
+    </resultMap>
+
+    <select id="selectUserAuthority" resultMap="BaseResultMap">
+        select * from mybatis.user where id = #{id}
+    </select>
+
+    <select id="selectAuthority" resultType="authorityDto">
+        select * from mybatis.authority where id = #{id}
+    </select>
+
     <sql id="Base_Column_List" >
         id,name,age,pwd
     </sql>
@@ -97,6 +117,5 @@
             </if>
         </where>
     </select>
-    
 
 </mapper>
