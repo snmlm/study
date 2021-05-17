@@ -21,6 +21,11 @@
         </environment>
     </environments>
     <mappers>
+        <!-- 完全限定名 -->
         <mapper resource="./mapper/UserMapper.xml"/>
+        <!-- 接口绑定，接口与mapper名一样，需要跟xml在一个同包下 -->
+        <!-- <mapper class="com.snmlm.dto.UserDto"/> -->
+        <!-- 扫描包，注意同上 -->
+        <!-- <package name="./mapper/*.xml"/> -->
     </mappers>
 </configuration>
