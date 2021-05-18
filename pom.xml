@@ -11,6 +11,7 @@
     <modules>
         <module>spring-aop</module>
         <module>mybatis</module>
+        <module>spring-mybatis</module>
     </modules>
 
     <properties>

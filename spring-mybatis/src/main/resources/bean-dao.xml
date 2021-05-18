@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd"
+    default-autowire="byName">
+
+
+    <!-- 不需要写impl，注入sqlSessionFactory -->
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <constructor-arg name="mapperInterface" value="com.snmlm.dao.UserMapper"/>
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    </bean>
+    <!-- 需要写impl，依赖注入sqlSessionFactory -->
+    <bean id="userMapperDao" class="com.snmlm.dao.impl.UserMapperImpl"/>
+    <!-- 需要写impl，并且注入sqlSessionTemp -->
+    <bean id="authorityMapper" class="com.snmlm.dao.impl.AuthorityMapperImpl"/>
+
+</beans>
